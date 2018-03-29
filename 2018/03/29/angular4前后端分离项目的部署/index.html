@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="本文主要介绍在同一台服务器使用jetty部署后端服务器，然后如何部署angular4开发的前端项目。两种思路，第一是直接将前端项目同样放在jetty；另一种是用nginx部署前端项目，和后端服务器直接分离。（本文介绍是基于后端服务器已经使用jetty部署成功） 直接仍在jetty本来后端服务器已经部署在jetty，如果直接将前端代码也放在jetty,省去安装配置nginx这一步。将build后的文">
+<meta name="description" content="本文主要介绍在同一台服务器使用jetty部署后端服务器，然后如何部署angular4开发的前端项目。两种思路，第一是直接将前端项目同样放在jetty；另一种是用nginx部署前端项目，和后端服务器直接分离。（本文介绍是基于后端服务器已经使用jetty部署成功） 直接扔在jetty本来后端服务器已经部署在jetty，如果直接将前端代码也放在jetty,省去安装配置nginx这一步。将build后的文">
 <meta name="keywords" content="前端,nginx,服务器部署">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular4前后端分离项目的部署">
 <meta property="og:url" content="http://yoursite.com/2018/03/29/angular4前后端分离项目的部署/index.html">
 <meta property="og:site_name" content="HDP2017">
-<meta property="og:description" content="本文主要介绍在同一台服务器使用jetty部署后端服务器，然后如何部署angular4开发的前端项目。两种思路，第一是直接将前端项目同样放在jetty；另一种是用nginx部署前端项目，和后端服务器直接分离。（本文介绍是基于后端服务器已经使用jetty部署成功） 直接仍在jetty本来后端服务器已经部署在jetty，如果直接将前端代码也放在jetty,省去安装配置nginx这一步。将build后的文">
+<meta property="og:description" content="本文主要介绍在同一台服务器使用jetty部署后端服务器，然后如何部署angular4开发的前端项目。两种思路，第一是直接将前端项目同样放在jetty；另一种是用nginx部署前端项目，和后端服务器直接分离。（本文介绍是基于后端服务器已经使用jetty部署成功） 直接扔在jetty本来后端服务器已经部署在jetty，如果直接将前端代码也放在jetty,省去安装配置nginx这一步。将build后的文">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-29T07:41:33.794Z">
+<meta property="og:updated_time" content="2018-03-29T07:53:40.448Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular4前后端分离项目的部署">
-<meta name="twitter:description" content="本文主要介绍在同一台服务器使用jetty部署后端服务器，然后如何部署angular4开发的前端项目。两种思路，第一是直接将前端项目同样放在jetty；另一种是用nginx部署前端项目，和后端服务器直接分离。（本文介绍是基于后端服务器已经使用jetty部署成功） 直接仍在jetty本来后端服务器已经部署在jetty，如果直接将前端代码也放在jetty,省去安装配置nginx这一步。将build后的文">
+<meta name="twitter:description" content="本文主要介绍在同一台服务器使用jetty部署后端服务器，然后如何部署angular4开发的前端项目。两种思路，第一是直接将前端项目同样放在jetty；另一种是用nginx部署前端项目，和后端服务器直接分离。（本文介绍是基于后端服务器已经使用jetty部署成功） 直接扔在jetty本来后端服务器已经部署在jetty，如果直接将前端代码也放在jetty,省去安装配置nginx这一步。将build后的文">
 
 
 
@@ -398,7 +398,7 @@
 
       
         <p>本文主要介绍在同一台服务器使用jetty部署后端服务器，然后如何部署angular4开发的前端项目。两种思路，第一是直接将前端项目同样放在jetty；另一种是用nginx部署前端项目，和后端服务器直接分离。（本文介绍是基于后端服务器已经使用jetty部署成功）</p>
-<h2 id="直接仍在jetty"><a href="#直接仍在jetty" class="headerlink" title="直接仍在jetty"></a>直接仍在jetty</h2><p>本来后端服务器已经部署在jetty，如果直接将前端代码也放在jetty,省去安装配置nginx这一步。<br>将build后的文件，直接放在jetty中webapps文件夹下与后端项目同级新建一文件夹（以mobile为例），重启jetty，后访问xx.xx.xx.xx/mobile，即可。<br><strong>需要注意的：</strong><br>按照这种部署方式，angular4前端项目会默认寻找xx.xx.xx.xx/下的后端服务，也就是，后端服务项目需部署在jetty的默认路径，即，root。</p>
+<h2 id="直接扔在jetty"><a href="#直接扔在jetty" class="headerlink" title="直接扔在jetty"></a>直接扔在jetty</h2><p>本来后端服务器已经部署在jetty，如果直接将前端代码也放在jetty,省去安装配置nginx这一步。<br>将build后的文件，直接放在jetty中webapps文件夹下与后端项目同级新建一文件夹（以mobile为例），重启jetty，后访问xx.xx.xx.xx/mobile，即可。<br><strong>需要注意的：</strong><br>按照这种部署方式，angular4前端项目会默认寻找xx.xx.xx.xx/下的后端服务，也就是，后端服务项目需部署在jetty的默认路径，即，root。</p>
 <h2 id="使用nginx"><a href="#使用nginx" class="headerlink" title="使用nginx"></a>使用nginx</h2><p>nginx的优点不必多说，最重要的一个就是angular4前端最需要的跨域，如何使用见下文。</p>
 <h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><p>Windows系统直接去官网下载即可<a href="https://nginx.org/en/download.html" target="_blank" rel="noopener">nginx下载</a><br>下载之后，在服务器里找到nginx想要安装的位置，直接解压。<br>解压之后会得到几个文件夹，需要特殊关注的，也就是与配置项目有关的有这么几个：<br><strong>根目录下的nginx.exe</strong>——nginx启动文件<br><strong>根目录下的conf文件夹</strong>——配置文件在此文件夹下的nginx.conf文件<br><strong>根目录下的html文件夹</strong>——项目文件默认放在此文件夹</p>
 <h3 id="nginx指令"><a href="#nginx指令" class="headerlink" title="nginx指令"></a>nginx指令</h3><p>安装完成之后即可双击启动文件开启nginx server，打开之后即可访问localhost，正常打开nginx欢迎页面即为安装成功。常用的nginx指令有几个：<br><strong>nginx</strong>——这也是一条指令，启动nginx，与双击启动文件效果一样<br><strong>nginx -s reopen</strong> ——重启nginx<br><strong>nginx -s reload</strong> ——重新载入配置文件，一般更改配置文件之后需要此指令<br><strong>nginx -s stop</strong> ——强制退出（不管是否有未处理数据，直接退出）<br><strong> nginx -s quit</strong> ——优雅的退出（有未处理数据将等待）<br><strong>以上指令皆在nginx安装文件夹根目录打开命令行工具即可执行</strong></p>
@@ -638,7 +638,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#直接仍在jetty"><span class="nav-number">1.</span> <span class="nav-text">直接仍在jetty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用nginx"><span class="nav-number">2.</span> <span class="nav-text">使用nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装nginx"><span class="nav-number">2.1.</span> <span class="nav-text">安装nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx指令"><span class="nav-number">2.2.</span> <span class="nav-text">nginx指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置nginx"><span class="nav-number">2.3.</span> <span class="nav-text">配置nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反向代理实现跨域"><span class="nav-number">2.4.</span> <span class="nav-text">反向代理实现跨域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能遇到的问题"><span class="nav-number">3.</span> <span class="nav-text">可能遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端项目部署后，刷新页面就404"><span class="nav-number">3.1.</span> <span class="nav-text">前端项目部署后，刷新页面就404</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">3.1.1.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果后端服务部署在tomcat呢"><span class="nav-number">3.2.</span> <span class="nav-text">如果后端服务部署在tomcat呢</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#直接扔在jetty"><span class="nav-number">1.</span> <span class="nav-text">直接扔在jetty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用nginx"><span class="nav-number">2.</span> <span class="nav-text">使用nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装nginx"><span class="nav-number">2.1.</span> <span class="nav-text">安装nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx指令"><span class="nav-number">2.2.</span> <span class="nav-text">nginx指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置nginx"><span class="nav-number">2.3.</span> <span class="nav-text">配置nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反向代理实现跨域"><span class="nav-number">2.4.</span> <span class="nav-text">反向代理实现跨域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能遇到的问题"><span class="nav-number">3.</span> <span class="nav-text">可能遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端项目部署后，刷新页面就404"><span class="nav-number">3.1.</span> <span class="nav-text">前端项目部署后，刷新页面就404</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">3.1.1.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果后端服务部署在tomcat呢"><span class="nav-number">3.2.</span> <span class="nav-text">如果后端服务部署在tomcat呢</span></a></li></ol></li></ol></div>
             
 
           </div>
